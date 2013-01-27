@@ -1,12 +1,13 @@
-<div class="backgrounder">
+<div class="backgrounder2">
   <div class="container">
     <div style="height:25px"></div>
     <div class="row-fluid"></div>
-    <div class="span2 offset1 visible-desktop" style="margin-left:85px;">
+    <div class="span2 offset1 visible-desktop">
       <%= image_tag("logo.png", :class=>"visible-desktop") %>
     </div>
     <div class="span2 hidden-desktop" style="margin-left:-20px;">
-      <%= image_tag("logo.png", :class=>"hidden-desktop") %>
+      <%= image_tag("logo.png", :class=>"visible-tablet") %>
+      <%= image_tag("logo.png", :class=>"visible-phone") %>
     </div>
     <div class="hidden-phone" style="height:100px;"></div>
     <div class="row-fluid">
@@ -44,7 +45,7 @@
         </div>
       </div>
       <div style="height:40px"></div>
-      <p>Learn more about TuneTether <strong><%= link_to("here", "home/faq") %></strong></p>
+      <p>Learn more about TuneTether <strong><%= link_to("here", "home/faq", :style => "color:#000000;") %></strong></p>
     </div>
     <div class="span5"><%= image_tag("phones.png", :alt => "image of phones") %></div>
     </div>
