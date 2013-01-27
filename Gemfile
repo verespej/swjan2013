@@ -12,6 +12,8 @@ group :production do
   gem 'pg'
 end
 
+gem 'therubyracer', '~> 0.10.2'
+gem 'less-rails'
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -23,6 +25,7 @@ group :assets do
   # gem 'therubyracer', :platforms => :ruby
 
   gem 'uglifier', '>= 1.0.3'
+  gem 'twitter-bootstrap-rails'
 end
 
 gem 'jquery-rails'
