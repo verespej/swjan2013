@@ -12,19 +12,16 @@
       <meta name="description" content="TuneTether allows for synchronized audio across multiple mobile devices">
       <meta name="keywords" content="TuneTether, music, mobile, listen, synchronize, tune, tether">
       <meta name="author" content="Daniel Gorrie">
-  <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= javascript_include_tag "application" %>
-  <%= csrf_meta_tags %>
 
       <!-- Le styles -->
-      <link href="css/bootstrap.css" rel="stylesheet">
-      <link href="css/bootstrap-responsive.css" rel="stylesheet">
       <%= stylesheet_link_tag("bootstrap.css") %>
-      <link href="css/bootstrap-responsive.css" rel="stylesheet">
+      <%= stylesheet_link_tag("bootstrap-responsive.css") %>
+      <%= stylesheet_link_tag("bootstrap.css") %>
+      <%= stylesheet_link_tag("bootstrap-responsive.css") %>
 
-      <script src="js/jquery.js"></script>
+      <%= javascript_include_tag("jquery.js") %>
       <!--<script src="js/bootstrap-responsive.js"></script>-->
-      <script src="js/bootstrap.js"></script>
+      <%= javascript_include_tag("bootstrap.js") %>
       <!--<script src="js/bootstrap-transition.js"></script>-->
 
       <!--Fav and Touch icons-->  
@@ -48,7 +45,7 @@
       })();
     </script>
   </head>
-  <body style="background: url('/images/c4.png') repeat-x;">
+  <body style="background: url('/assets/c4.png') repeat-x;">
 <div class="modal hide fade" id="myModal">
   <div class="modal-header">
     <button type="button" class="close" data-dismiss="modal">&times;</button>
