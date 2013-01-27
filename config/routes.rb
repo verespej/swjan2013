@@ -7,6 +7,10 @@ Tunetether::Application.routes.draw do
 
   get "home/conduct"
 
+  get "home/servertime"
+
+  get "home/playtime"
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

@@ -3,8 +3,26 @@ var canPlay = true;
 var audio = new Audio();
 audio.src = "/assets/song1cut.mp3";
 
+var totalTransitTime = 0;
+var lastServerTime = 0;
+var lastArrialTime = 0;
+for (i=0; i < 3; i++)
+{
+  var timeBeforeSend = new Date().getTime();
+  $.ajax({ url:"http://0.0.0.0:3000/home/servertime", async:false }).done(function (data) {
+    lastArrivalTime = new Date().getTime();
+    lastServerTime = data;
+    totalTransitTime += lastArrivalTime - timeBeforeSend;
+  });
+}
+
+var halfTripTime = totalTransitTime / 6;
+var localSkew = lastArrivalTime - halfTripTime - lastServerTime;
+alert(localSkew);
+
 function syncPlay() {
   if (canPlay) {
+    canPlay = false;
     $("#rock_btn").addClass("disabled").text("Loading...");
     audio.load();
     $("#rock_btn").text("Waiting for conductor...");
