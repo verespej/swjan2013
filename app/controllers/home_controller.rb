@@ -4,4 +4,10 @@ class HomeController < ApplicationController
 
   def faq
   end
+
+  def sync
+  end
+
+  def conduct
+  end
 end

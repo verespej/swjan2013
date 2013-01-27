@@ -3,6 +3,10 @@ Tunetether::Application.routes.draw do
 
   get "home/index"
 
+  get "home/sync"
+
+  get "home/conduct"
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
