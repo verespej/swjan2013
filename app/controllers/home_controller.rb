@@ -16,8 +16,19 @@ class HomeController < ApplicationController
     timestamp = (Time.now.to_f * 1000.0).to_i
     respond_with(timestamp)
   end
+
+  $scheduledTime = 0
+  respond_to :json
+  def schedule
+    $scheduledTime = ((Time.now + 10).to_f * 1000.0).to_i
+    respond_with(1)
+  end
+
+  respond_to :json
   def playtime
-    timestamp = ((Time.now + 10).to_f * 1000.0).to_i
-    respond_with(timestamp)
+    if $scheduledTime < (Time.now.to_f * 1000.0).to_i
+      $scheduledTime = 0;
+    end
+    respond_with($scheduledTime)
   end
 end
