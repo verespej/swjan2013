@@ -1,60 +1,58 @@
-<div class="container">
-  <div style="height:25px"></div>
-  <div class="row-fluid">
-    <div class="span2 offset1" style="margin-left:85px;">
-      <%= image_tag("logo.png", :class => "img-rounded") %>
+<div class="backgrounder">
+  <div class="container">
+    <div style="height:25px"></div>
+    <div class="row-fluid"></div>
+    <div class="span2 offset1 visible-desktop" style="margin-left:85px;">
+      <%= image_tag("logo.png", :class=>"visible-desktop") %>
     </div>
-    <!--div class="span2" style="padding-top:49px; margin-left:3px;">
-      <p style="color:#3D77CE; font-size:25px; font-family:nexa_boldregular;">Tether</p>
-    </div-->
-    <div style="height:100px;"></div>
+    <div class="span2 hidden-desktop" style="margin-left:-20px;">
+      <%= image_tag("logo.png", :class=>"hidden-desktop") %>
+    </div>
+    <div class="hidden-phone" style="height:100px;"></div>
     <div class="row-fluid">
-      <div class="span10 offset1">
-        <h1>Surround sound. </h1> 
-      </div>
+      <div class="span10 offset1"><h1>Surround sound.</h1></div>
       <div class="row-fluid">
-        <div class="span6 offset1">
-          <h3>Unlimited devices. Unlimited possibilities.</h3>
-          <div class="row-fluid">
-            <div class="span6">
-              <div style="height:20px"></div>
-              <h5><%= image_tag("check.png") %> Sync across phones</h5>
-              <h5><%= image_tag("check.png") %> Listen with friends</h5>
-              <div style="height:25px"></div>
-            </div>
-            <div class="span6">
-              <div style="height:20px"></div>
-              <h5><%= image_tag("check.png") %> Portable surround sound</h5>
-              <h5><%= image_tag("check.png") %> 3G, 4G, or WiFi</h5>
-              <div style="height:25px"></div>
-            </div>
-          </div>
-          <p>Download the app in the following stores:</p>
-          <div class="row-fluid">
-            <div class="span7">
-              <div style="height:20px"></div>
-              <a class="btn btn-primary btn-block" href="#myModal" role="button" data-toggle="modal">
-                <%= image_tag("android_20x20.png") %> <b>Download for Android</b>
-              </a>
-              <div style="height:20px"></div>
-              <a class="btn btn-primary btn-block" href="#myModal" role="button" data-toggle="modal">
-                <%= image_tag("iPhone_20x20.png") %> <b>Download for iPhone</b>
-              </a>
-              <div style="height:20px"></div>
-              <a class="btn btn-primary btn-block" href="#myModal" role="button" data-toggle="modal">
-                <%= image_tag("windows_20x20.png") %> <b>Download for Windows Phone</b>
-              </a>
-            </div>
-          </div>
-          <div style="height:40px"></div>
-          <p>Learn more about TuneTether <strong><%= link_to("here", "home/faq") %></strong></p>
+      <div class="span6 offset1"><h3>Unlimited devices. Unlimited possibilities.</h3><div class="row-fluid">
+        <div class="span6">
+          <div style="height:20px"></div>
+          <h5><%= image_tag("check.png") %> Sync across phones</h5>
+          <h5><%= image_tag("check.png") %> Listen with friends</h5>
+          <div class="hidden-phone" style="height:25px"></div>
         </div>
-        <div class="span5">
-          <%= image_tag("phones.png", :alt => "image of phones") %>
+        <div class="span6">
+          <div class="hidden-phone" style="height:20px"></div>
+          <h5><%= image_tag("check.png") %> Portable surround sound</h5>
+          <h5><%= image_tag("check.png") %> 3G, 4G, or WiFi</h5>
+          <div style="height:25px"></div>
         </div>
       </div>
+      <p>Download the app in the following stores:</p>
+      <div class="row-fluid">
+        <div class="span7">
+          <div style="height:20px"></div>
+          <a class="btn btn-primary btn-block" href="#myModal" role="button" data-toggle="modal">
+            <%= image_tag("android_20x20.png") %> <b>Download for Android</b>
+          </a>
+          <div style="height:20px"></div>
+          <a class="btn btn-primary btn-block" href="#myModal" role="button" data-toggle="modal">
+            <%= image_tag("iPhone_20x20.png") %> <b>Download for iPhone</b>
+          </a>
+          <div style="height:20px"></div>
+          <a class="btn btn-primary btn-block" href="#myModal" role="button" data-toggle="modal">
+            <%= image_tag("windows_20x20.png") %> <b>Download for Windows Phone</b>
+          </a>
+        </div>
+      </div>
+      <div style="height:40px"></div>
+      <p>Learn more about TuneTether <strong><%= link_to("here", "home/faq") %></strong></p>
+    </div>
+    <div class="span5"><%= image_tag("phones.png", :alt => "image of phones") %></div>
+    </div>
+    </div>
     </div>
   </div>
+</div>
+<div class="container">
   <div class="row">
     <div class="span4 offset1">
       <h3>Music Wherever You Are</h3>

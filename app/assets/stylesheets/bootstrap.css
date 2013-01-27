@@ -36,6 +36,22 @@
 }
 
 
+.backgrounder {
+  margin: 0px -20px 0px -20px;
+  background-image: -webkit-gradient(
+  linear,
+  left bottom,
+  left top,
+  color-stop(0.07, #C4C4C4),
+  color-stop(0.54, #D4D4D4),
+  color-stop(0.77, #E0E0E0),
+  color-stop(0.89, #EDEDED),
+  color-stop(0.95, #F5F5F5),
+  color-stop(0.98, #FAFAFA)
+);
+}
+
+
 article,
 aside,
 details,
@@ -255,7 +271,7 @@ body {
   font-size: 14px;
   line-height: 20px;
   color: #333333;
-  background: #FFFFFF url('/assets/c4,620.png') repeat-x;
+  background: #FFFFFF;
   }
 
 a {
