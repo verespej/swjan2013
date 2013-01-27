@@ -70,33 +70,36 @@ function play(localPlayTimeInMs) {
   {
   }
   $("#rock_btn").text("Get up and dance sucker!");
+  var start = new Date().getTime();
   audio.play();
+  var diff = new Date().getTime() - start;
+  alert("play took: " + diff + "ms");
 }
 
 </script>
 <div class="backgrounder">
   <div class="container">
     <div class="span2 offset1 visible-desktop" style="margin-left:85px;">
-      <%= image_tag("logo.png", :class=>"visible-desktop") %>
+      <%= image_tag("logofinal_transparent.png", :class=>"visible-desktop") %>
     </div>
     <div class="span2 hidden-desktop" style="margin-left:-20px;">
       <%= image_tag("logo.png", :class=>"hidden-desktop") %>
     </div>
     <div class="row-fluid">
-      <h6>proudly presents:</h6>
-      <div class="span10 offset1"><h1>Surround Sound</h1></div>
+      <div class="span10 offset1"><h2>Surround Sound</h2></div>
       <div class="row-fluid">
         <div class="span6 offset1">
           <div class="row-fluid">
-            <div class="span6">
-              <div style="height:40px"></div>
-              <h5>Get ready for a social symphony. Click the "Rock!" button below to join in. After clicking, the app will load and wait for the syncronization signal. Get ready to Rock!</h5>
+            <div class="span7">
+              <div style="height:20px"></div>
+              <h4>Get ready for a social symphony. Click the "Join!" button below to join in. After clicking, the app will load and wait for the syncronization signal. Get ready to rock!</h4>
+              <div style="height:20px"></div>
             </div>
           </div>
           <div class="row-fluid">
             <div class="span7">
               <a id="rock_btn" class="btn btn-primary btn-block" href="#" role="button" data-toggle="modal" onclick="syncPlay();">
-                <b>Rock!<b>
+                <b>Join!<b>
               </a>
             </div>
           </div>
