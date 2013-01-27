@@ -17,7 +17,7 @@ class HomeController < ApplicationController
     respond_with(timestamp)
   end
   def playtime
-    timestamp = ((Time.now + 1).to_f * 1000.0).to_i
+    timestamp = ((Time.now + 10).to_f * 1000.0).to_i
     respond_with(timestamp)
   end
 end

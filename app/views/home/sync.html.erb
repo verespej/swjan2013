@@ -3,35 +3,64 @@ var canPlay = true;
 var audio = new Audio();
 audio.src = "/assets/song1cut.mp3";
 
-var totalTransitTime = 0;
-var lastServerTime = 0;
-var lastArrivalTime = 0;
-for (i=0; i < 3; i++)
-{
-  var timeBeforeSend = new Date().getTime();
-  $.ajax({ url:"/home/servertime", async:false }).done(function (data) {
-    lastArrivalTime = new Date().getTime();
-    lastServerTime = data;
-    totalTransitTime += lastArrivalTime - timeBeforeSend;
-    //alert("time before: " + timeBeforeSend + "\nserver time: " + lastServerTime + "\ntime after: " + lastArrivalTime);
-  });
-}
+var localSkew = 0;
+function runTimingTests() {
+  var totalTransitTime = 0;
+  var lastServerTime = 0;
+  var lastArrivalTime = 0;
 
-var halfTripTime = totalTransitTime / 6;
-//alert("total transit: " + totalTransitTime + "\nhalf trip: " + halfTripTime);
-var localSkew = lastArrivalTime - halfTripTime - lastServerTime;
-alert("skew: " + localSkew);
+  for (i=0; i < 3; i++) {
+    var timeBeforeSend = new Date().getTime();
+    $.ajax({ url:"/home/servertime", async:false }).done(function (data) {
+      lastArrivalTime = new Date().getTime();
+      lastServerTime = data;
+      totalTransitTime += lastArrivalTime - timeBeforeSend;
+      //alert("time before: " + timeBeforeSend + "\nserver time: " + lastServerTime + "\ntime after: " + lastArrivalTime);
+    });
+  }
+
+  var halfTripTime = totalTransitTime / 6;
+  //alert("total transit: " + totalTransitTime + "\nhalf trip: " + halfTripTime);
+  localSkew = lastArrivalTime - halfTripTime - lastServerTime;
+  alert("skew: " + localSkew);
+}
 
 function syncPlay() {
   if (canPlay) {
     canPlay = false;
+
     $("#rock_btn").addClass("disabled").text("Loading...");
     audio.load();
+
     $("#rock_btn").text("Waiting for conductor...");
-    $("#rock_btn").text("Get up and dance sucker!");
-    audio.play();
+    $.ajax("/home/playtime").done(schedulePlay);
   }
 }
+
+function schedulePlay(serverPlayTimeInMs) {
+  if (serverPlayTimeInMs == 0) {
+    setTimeout(function() {
+      $.ajax("/home/playtime").done(schedulePlay);
+    }, 5000);
+  }
+  else {
+    // We need high-accuracy timing here, so can't rely 
+    // solely on setTimeout, which can be innaccurate 
+    // as much as 500ms
+    var localPlayTimeInMs = serverPlayTimeInMs - localSkew;
+    var timeUntilPlay = localPlayTimeInMs - (new Date().getTime());
+    //alert("Time until play: " + timeUntilPlay);
+
+    setTimeout(function() {
+      while ((new Date().getTime()) < localPlayTimeInMs)
+      {
+      }
+      $("#rock_btn").text("Get up and dance sucker!");
+      audio.play();
+    }, timeUntilPlay - 1000);
+  }
+}
+
 </script>
 <div class="backgrounder">
   <div class="container">
