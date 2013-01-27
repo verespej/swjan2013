@@ -1,15 +1,22 @@
 <script>
-var audio = document.createElement("audio");
-if (audio != null && audio.canPlayType && audio.canPlayType("audio/mpeg")) {
-  audio.src = "/assets/song1.mp3";
-  audio.addEventListener("canplaythrough", function() {
-    $("#rock_btn").removeClass("disabled").text("Rock!");
-  }, false);
-}
-function syncPlay() {
-  $("#rock_btn").addClass("disabled").text("Get up and dance sucker!");
-  audio.play();
-}
+var canPlay = true;
+var audio = new Audio();
+audio.src = "/assets/song1cut.mp3";
+audio.load();
+audio.play();
+//$("#player").appendChild(audio);
+/*audio.addEventListener("canplaythrough", function() {
+  canPlay = true;
+  $("#rock_btn").removeClass("disabled").text("Rock!");
+}, false);*/
+
+/*function syncPlay() {
+  if (canPlay) {
+    canPlay = false;
+    $("#rock_btn").addClass("disabled").text("Get up and dance sucker!");
+    audio.play();
+  }
+}*/
 </script>
 <div class="backgrounder">
   <div class="container">
@@ -33,12 +40,13 @@ function syncPlay() {
           </div>
           <div class="row-fluid">
             <div class="span7">
-              <a id="rock_btn" class="btn btn-primary btn-block disabled" href="" role="button" data-toggle="modal" onclick="syncPlay();">
+              <a id="rock_btn" class="btn btn-primary btn-block disabled" href="#" role="button" data-toggle="modal" onclick="syncPlay();">
                 <b>Loading...</b>
               </a>
             </div>
           </div>
           <div style="height:40px"></div>
+<div id="player"></div>
         </div>
       </div>
     </div>
