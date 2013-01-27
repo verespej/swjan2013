@@ -1,0 +1,97 @@
+<div class="navbar-wrapper">
+  <div class="container">
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <%= link_to("/", :class => "brand") do %>
+          <span style="color:white; margin-left:60px; font-family:'nexa_boldregular'; font-size:25px;">Tune<span style="color:#3C6CC0;">Tether</span></span>
+        <% end %>
+        <ul class="nav">
+          <li><a href="#myModal" role="button" data-toggle="modal"><span style="font-family:'nexa_boldregular';">Downloads</span></a></li>
+          <li class="active"><a href="faq.html"><span style="font-family:'nexa_boldregular';">FAQs</span></a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+<div style="height: 70px;"></div>
+<div class="container">
+  <div class="row-fluid">
+    <div class="span10 offset 2">
+      <h3 id="q1">What is TuneTether?</h3>
+      <br>
+      <p>TuneTether is a universal app (currently in beta) that will allow iOS, Android, and Windows Phone smartphones to become one unified stereo system. Playing music on one phone will play music on all the phones. TuneTether will allow you to take your stereo wherever you and your friends choose to adventure!</p>
+    </div>
+  </div>
+  <div class="row-fluid">
+    <div class="span10 offset 1">
+      <h3 id="q2">How does it work?</h3>
+      <br>
+      <p>TuneTether links you and your friend’s phones by creating a local network via wifi, 3G, or 4G connection. Once everyone is connected, the group leader starts the music playing. Your friends can all vote for the next song, and can share their playlists in real time over the air.</p>
+    </div>
+  </div>
+  <div class="row-fluid">
+    <div class="span10 offset 1">
+      <h3 id="q3">When will TuneTether be available?</h3>
+      <br>
+      <p>TuneTether was founded at the University of Washington Startup Weekend on January 25th, 2013. The team is composed of students from the University of Washington, Seattle University, and professional developers from local companies. With enough support, we hope to bring the app to market within a few months.</p>
+    </div>
+  </div>
+  <div class="row-fluid">
+    <div class="span10 offset 1">
+      <h3 id="q4">How much will TuneTether cost?</h3>
+      <br>
+      <p>TuneTether will be available free to download with additional premium features available for purchase.</p>
+    </div>
+  </div>
+  <div class="row-fluid">
+    <div class="span10 offset 1">
+      <h3 id="q5">How can I help make TuneTether a reality?</h3>
+      <br>
+      <p>Like the Facebook page, submit your email to our mailing list, complete our survey, and tell your friends!</p>
+    </div>
+  </div>
+</div>
+
+<!--Modal-->
+
+<div class="modal hide fade" id="myModal">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal">&times;</button>
+    <h3 style="color:#3D77CE;">Sign Up</h3>
+  </div>
+  <div class="modal-body">
+    <div id="subscribeFormWelcome">
+      <span><p style="font-family:nexa_boldregular; font-size:18px;">TuneTether is still in development at the moment, but we&#39;d love for you to help us make TuneTether rock! Sign up below to get early access, provide input on its development, and get some special TuneTether deals.&nbsp;</p>
+      <br>
+      <p style="font-family:nexa_boldregular;"><em>TuneTether, Your&nbsp;Social Stereo</em></p></strong>
+      <br>
+    </div>
+    <form action="http://tunetether.us5.list-manage.com/subscribe/post" method="POST">
+      <input type="hidden" name="u" value="bf1667d480c9ef1afc699d9a0">
+      <input type="hidden" name="id" value="4433765c95">
+      <div id="mergeTable" class="mergeTable" style="color:#3D77CE; font-family:nexa_boldregular;"  >
+        <div class="mergeRow dojoDndItem mergeRow-email" id="mergeRow-0">
+          <label for="MERGE0"><strong>Email Address (Required)</strong></label>
+          <div class="field-group">
+            <input type="email" autocapitalize="off" autocorrect="off" name="MERGE0" id="MERGE0" size="25" value="">
+          </div>
+        </div>
+        <div class="mergeRow dojoDndItem mergeRow-text" id="mergeRow-1">
+          <label for="MERGE1">First Name</label>
+          <div class="field-group">
+            <input type="text" name="MERGE1" id="MERGE1" size="25" value="">
+          </div>
+        </div>
+        <div class="mergeRow dojoDndItem mergeRow-text" id="mergeRow-2">
+          <label for="MERGE2">Last Name</label>
+          <div class="field-group">
+            <input type="text" name="MERGE2" id="MERGE2" size="25" value="">
+          </div>
+        </div>
+      </div>
+      <br>
+      <button type="submit" value="Subscribe to list" class="btn btn-primary" name="submit">Submit</button>
+    </form>
+    </div>
+  </div>
+</div>
