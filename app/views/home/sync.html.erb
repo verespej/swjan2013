@@ -54,12 +54,12 @@ function schedulePlay(serverPlayTimeInMs) {
     $("#rock_btn").text("Starting in " + secondsUntilPlay + " seconds...");
     //alert("Time until play: " + timeUntilPlay);
 
-    if (timeUntilPlay < 2000) {
+    if (timeUntilPlay < 1500) {
       play(localPlayTimeInMs)
     }
     else {
       setTimeout(function() {
-        play(localPlayTimeInMs);
+        schedulePlay(localPlayTimeInMs);
       }, timeUntilPlay - 1000);
     }
   }
@@ -69,11 +69,8 @@ function play(localPlayTimeInMs) {
   while ((new Date().getTime()) < localPlayTimeInMs)
   {
   }
-  $("#rock_btn").text("Get up and dance sucker!");
-  var start = new Date().getTime();
+  $("#rock_btn").text("Get up and dance, sucker!");
   audio.play();
-  var diff = new Date().getTime() - start;
-  alert("play took: " + diff + "ms");
 }
 
 </script>
@@ -83,7 +80,7 @@ function play(localPlayTimeInMs) {
       <%= image_tag("logofinal_transparent.png", :class=>"visible-desktop") %>
     </div>
     <div class="span2 hidden-desktop" style="margin-left:-20px;">
-      <%= image_tag("logo.png", :class=>"hidden-desktop") %>
+      <%= image_tag("logofinal_transparent.png", :class=>"hidden-desktop") %>
     </div>
     <div class="row-fluid">
       <div class="span10 offset1"><h2>Surround Sound</h2></div>
