@@ -22,7 +22,7 @@ function runTimingTests() {
   var halfTripTime = totalTransitTime / 6;
   //alert("total transit: " + totalTransitTime + "\nhalf trip: " + halfTripTime);
   localSkew = lastArrivalTime - halfTripTime - lastServerTime;
-  alert("skew: " + localSkew);
+  //alert("skew: " + localSkew);
 }
 
 function syncPlay() {
@@ -31,6 +31,8 @@ function syncPlay() {
 
     $("#rock_btn").addClass("disabled").text("Loading...");
     audio.load();
+
+    runTimingTests();
 
     $("#rock_btn").text("Waiting for conductor...");
     $.ajax("/home/playtime").done(schedulePlay);
@@ -72,7 +74,7 @@ function play(localPlayTimeInMs) {
 }
 
 </script>
-<div class="backgrounder">
+<div class="backgrounder2">
   <div class="container">
     <div class="span2 offset1 visible-desktop" style="margin-left:85px;">
       <%= image_tag("logo.png", :class=>"visible-desktop") %>
