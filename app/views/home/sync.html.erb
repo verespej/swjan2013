@@ -48,29 +48,29 @@ function schedulePlay(serverPlayTimeInMs) {
     // solely on setTimeout, which can be innaccurate 
     // as much as 500ms
     var localPlayTimeInMs = serverPlayTimeInMs - localSkew;
-    var timeUntilPlay = localPlayTimeInMs - (new Date().getTime());
+    var timeUntilPlayInMs = localPlayTimeInMs - (new Date().getTime());
 
-    var secondsUntilPlay = Math.round(timeUntilPlay / 1000);
-    $("#rock_btn").text("Starting in " + secondsUntilPlay + " seconds...");
-    //alert("Time until play: " + timeUntilPlay);
-
-    if (timeUntilPlay < 1500) {
-      play(localPlayTimeInMs)
-    }
-    else {
-      setTimeout(function() {
-        schedulePlay(localPlayTimeInMs);
-      }, timeUntilPlay - 1000);
-    }
+    play(timeUntilPlayInMs);
   }
 }
 
 function play(localPlayTimeInMs) {
-  while ((new Date().getTime()) < localPlayTimeInMs)
-  {
+  var timeUntilPlayInMs = new Date().getTime() - localPlayTimeInMs;
+  var timeUntilPlayInS = Math.round(timeUntilPlayInMs / 1000);
+  $("#rock_btn").text("Starting in " + secondsUntilPlayInS + " seconds...");
+
+  if (timeUntilPlay > 1500) {
+      setTimeout(function() {
+        play(localPlayTimeInMs);
+      }, 1000);
   }
-  $("#rock_btn").text("Get up and dance, sucker!");
-  audio.play();
+  else {
+    while ((new Date().getTime()) < localPlayTimeInMs)
+    {
+    }
+    audio.play();
+    $("#rock_btn").text("Get up and dance, sucker!");
+  }
 }
 
 </script>
