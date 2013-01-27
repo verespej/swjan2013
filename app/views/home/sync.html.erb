@@ -44,27 +44,25 @@ function schedulePlay(serverPlayTimeInMs) {
     }, 5000);
   }
   else {
-    // We need high-accuracy timing here, so can't rely 
-    // solely on setTimeout, which can be innaccurate 
-    // as much as 500ms
     var localPlayTimeInMs = serverPlayTimeInMs - localSkew;
-    var timeUntilPlayInMs = localPlayTimeInMs - (new Date().getTime());
-
-    play(timeUntilPlayInMs);
+    play(localPlayTimeInMs);
   }
 }
 
 function play(localPlayTimeInMs) {
-  var timeUntilPlayInMs = new Date().getTime() - localPlayTimeInMs;
+  var timeUntilPlayInMs = localPlayTimeInMs - new Date().getTime();
   var timeUntilPlayInS = Math.round(timeUntilPlayInMs / 1000);
-  $("#rock_btn").text("Starting in " + secondsUntilPlayInS + " seconds...");
+  $("#rock_btn").text("Starting in " + timeUntilPlayInS + " seconds...");
 
-  if (timeUntilPlay > 1500) {
+  if (timeUntilPlayInMs > 1500) {
       setTimeout(function() {
         play(localPlayTimeInMs);
       }, 1000);
   }
   else {
+    // We need high-accuracy timing here, so can't rely 
+    // solely on setTimeout, which can be innaccurate 
+    // as much as 500ms
     while ((new Date().getTime()) < localPlayTimeInMs)
     {
     }
@@ -77,10 +75,10 @@ function play(localPlayTimeInMs) {
 <div class="backgrounder">
   <div class="container">
     <div class="span2 offset1 visible-desktop" style="margin-left:85px;">
-      <%= image_tag("logofinal.png", :class=>"visible-desktop") %>
+      <%= image_tag("logo.png", :class=>"visible-desktop") %>
     </div>
     <div class="span2 hidden-desktop" style="margin-left:-20px;">
-      <%= image_tag("logofinal.png", :class=>"hidden-desktop") %>
+      <%= image_tag("logo.png", :class=>"hidden-desktop") %>
     </div>
     <div class="row-fluid">
       <div class="span10 offset1"><h2>Surround Sound</h2></div>
